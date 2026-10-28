@@ -440,6 +440,38 @@ let ultimaEstrela = null;
 
 // Guardamos até qual estrela ela conseguiu chegar.
 // A jornada começa pela primeira.
+// Este pequeno registro guarda o caminho que ela já percorreu.
+// Assim, as descobertas não desaparecem quando o site é fechado.
+const chaveProgresso = "ondeAsEstrelasGuardamVoce_saveStory_v1";
+
+function salvarHistoria() {
+  const progresso = {
+    estrelaAtual,
+    cartasDesbloqueadas,
+    historiaDesbloqueada,
+    cartasLidas: Array.from(cartasLidas)
+  };
+
+  try {
+    localStorage.setItem(chaveProgresso, JSON.stringify(progresso));
+  } catch (erro) {
+    console.warn("Não foi possível salvar a jornada:", erro);
+  }
+}
+
+function carregarHistoria() {
+  try {
+    const salvo = localStorage.getItem(chaveProgresso);
+
+    if (!salvo) return null;
+
+    return JSON.parse(salvo);
+  } catch (erro) {
+    console.warn("Não foi possível recuperar a jornada:", erro);
+    return null;
+  }
+}
+
 let estrelaAtual = 1;
 
 // Organizamos as estrelas na mesma sequência do HTML.
@@ -510,12 +542,15 @@ document.getElementById("closeMessage").addEventListener(
 
     // Só avançamos quando ela termina a estrela da vez.
     if (
-      numeroEstrela === estrelaAtual &&
-      estrelaAtual < 18
-    ) {
-      estrelaAtual++;
-      atualizarEstrelas();
-    }
+  numeroEstrela === estrelaAtual &&
+  estrelaAtual < 18
+) {
+  estrelaAtual++;
+  atualizarEstrelas();
+
+  // A próxima estrela já fica guardada para quando ela voltar.
+  salvarHistoria();
+}
 
     // A última estrela encerra o céu e abre o caminho das cartas.
     const ultimaMensagem =
@@ -525,6 +560,9 @@ document.getElementById("closeMessage").addEventListener(
   // A última estrela abre o próximo capítulo.
   cartasDesbloqueadas = true;
   atualizarJornada();
+
+  // O céu foi concluído. As cartas agora fazem parte da jornada salva.
+  salvarHistoria();
 
   document.getElementById("letters").scrollIntoView({
     behavior: reduzirMovimento.matches ? "auto" : "smooth",
@@ -624,7 +662,37 @@ function atualizarJornada() {
   botaoHistoria.disabled = !historiaDesbloqueada;
 }
 
-// No começo, só a constelação está disponível.
+// Antes de começar uma nova jornada, verificamos
+// se ela já deixou alguma descoberta guardada aqui.
+const progressoSalvo = carregarHistoria();
+
+if (progressoSalvo) {
+  if (
+    Number.isInteger(progressoSalvo.estrelaAtual) &&
+    progressoSalvo.estrelaAtual >= 1 &&
+    progressoSalvo.estrelaAtual <= 18
+  ) {
+    estrelaAtual = progressoSalvo.estrelaAtual;
+  }
+
+  cartasDesbloqueadas =
+    progressoSalvo.cartasDesbloqueadas === true;
+
+  historiaDesbloqueada =
+    progressoSalvo.historiaDesbloqueada === true;
+
+  if (Array.isArray(progressoSalvo.cartasLidas)) {
+    progressoSalvo.cartasLidas.forEach((carta) => {
+      if (["sad", "self", "secret"].includes(carta)) {
+        cartasLidas.add(carta);
+      }
+    });
+  }
+}
+
+// Atualizamos o céu e as próximas etapas
+// de acordo com o ponto em que ela parou.
+atualizarEstrelas();
 atualizarJornada();
 
 function openModal(kicker, title, html) {
@@ -653,6 +721,10 @@ function closeModal() {
     cartasLidas.add(cartaAtual);
     cartaAtual = null;
 
+    // Mesmo que ela leia apenas uma carta,
+    // essa descoberta continuará guardada.
+    salvarHistoria();
+
     // Depois de fechar as três cartas diferentes,
     // seguimos automaticamente para a história.
    if (cartasLidas.size === 3) {
@@ -662,6 +734,9 @@ function closeModal() {
   // Agora ela pode conhecer a história.
   historiaDesbloqueada = true;
   atualizarJornada();
+
+  // A história foi desbloqueada e continuará disponível.
+salvarHistoria();
 
   document.getElementById("story").scrollIntoView({
     behavior: reduzirMovimento.matches ? "auto" : "smooth",
