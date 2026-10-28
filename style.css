@@ -1,4 +1,5 @@
-/* As cores e fontes que dão identidade ao nosso pequeno universo. */
+/* Paleta que escolhi para manter o visual noturno.
+   O lilás acabou se tornando a cor principal do projeto. */
 
 :root {
   --night: #090b1b;
@@ -49,7 +50,8 @@ h1, h2, p {
 }
 
 
-/* O céu fica sempre ao fundo, com nebulosas e estrelas animadas. */
+/* O fundo usa um canvas separado para animar as estrelas
+   sem precisar mexer nos outros elementos da página. */
 
 .sky {
   position: fixed;
@@ -130,7 +132,7 @@ h1, h2, p {
 }
 
 
-/* O cabeçalho é discreto para não tirar a atenção do céu. */
+/* Cabeçalho */
 
 .topbar {
   position: absolute;
@@ -182,7 +184,8 @@ h1, h2, p {
 }
 
 
-/* A entrada do site: lua, título e o primeiro convite para explorar. */
+/* A primeira tela precisava ser simples.
+   Preferi deixar a lua e o título como pontos principais. */
 
 .hero {
   min-height: 100svh;
@@ -237,7 +240,9 @@ h1, h2, p {
   position: relative;
 }
 
-/* O recorte escuro é o que transforma o círculo em uma lua crescente. */
+/* A lua é feita com dois círculos sobrepostos.
+   Foi uma maneira de criar o efeito sem usar imagens externas. */
+
 .moon::after {
   content: "";
   position: absolute;
@@ -341,7 +346,7 @@ h2 em {
 }
 
 
-/* Um padrão para os títulos e espaçamentos das próximas partes. */
+/* Espaçamentos e títulos usados nas diferentes partes do site. */
 
 .explore,
 .section-block {
@@ -378,7 +383,8 @@ h2 em {
 }
 
 
-/* A constelação de Escorpião, onde ficam guardadas as 18 mensagens. */
+/* A constelação é uma adaptação visual de Scorpius.
+   Não é um mapa astronômico exato, mas mantém o formato que eu queria. */
 
 .constellation {
   position: relative;
@@ -394,8 +400,8 @@ h2 em {
   );
 }
 
-/* Essa parte é importante: sem o fill:none, o SVG pode criar
-   aquele preenchimento escuro que já apareceu nos nossos testes. */
+/* Durante os testes, o SVG chegou a preencher parte da tela de preto.
+   O fill:none resolve o problema e precisa continuar aqui. */
 
 .constellation-lines {
   position: absolute;
@@ -416,7 +422,8 @@ h2 em {
   stroke-linejoin: round;
 }
 
-/* Cada estrela é um botão de verdade, com brilho e área de clique. */
+
+/* Estrelas interativas */
 
 .star-point {
   position: absolute;
@@ -458,8 +465,9 @@ h2 em {
   }
 }
 
-/* As posições seguem uma versão artística de Scorpius.
-   Usamos porcentagens para manter o desenho adaptável à tela. */
+
+/* As posições foram ajustadas manualmente.
+   Usei porcentagens para tentar preservar o desenho em outras telas. */
 
 .estrela-1  { left: 20%;   top: 17.05%; }
 .estrela-2  { left: 24%;   top: 25.45%; }
@@ -468,22 +476,19 @@ h2 em {
 .estrela-5  { left: 19.5%; top: 38.64%; }
 .estrela-6  { left: 35%;   top: 41.59%; }
 
-/* Antares é conhecida como o coração do Escorpião. */
+/* Antares, o coração do Escorpião. */
 .estrela-7  { left: 41.5%; top: 44.77%; }
 
-/* Daqui em diante, seguimos pelo corpo. */
 .estrela-8  { left: 49%;   top: 55.68%; }
 .estrela-9  { left: 54%;   top: 67.5%; }
 .estrela-10 { left: 57%;   top: 57.95%; }
 
-/* A cauda começa a curvar o desenho. */
 .estrela-11 { left: 61%;   top: 78.41%; }
 .estrela-12 { left: 69%;   top: 84.09%; }
 .estrela-13 { left: 72%;   top: 73.41%; }
 .estrela-14 { left: 77%;   top: 81.14%; }
 .estrela-15 { left: 82%;   top: 71.82%; }
 
-/* As últimas estrelas formam o ferrão. */
 .estrela-16 { left: 82.5%; top: 59.77%; }
 .estrela-17 { left: 79%;   top: 48.86%; }
 .estrela-18 { left: 85.5%; top: 43.64%; }
@@ -499,7 +504,8 @@ h2 em {
 }
 
 
-/* Quando uma estrela é escolhida, a poesia aparece neste cartão. */
+/* As mensagens têm tamanhos diferentes.
+   Por isso, o cartão cresce conforme a quantidade de texto. */
 
 .message-card {
   position: relative;
@@ -514,7 +520,6 @@ h2 em {
   scroll-margin-top: 28px;
 }
 
-/* Uma entrada suave para as mensagens e janelas. */
 @keyframes rise {
   from {
     opacity: 0;
@@ -566,7 +571,6 @@ h2 em {
   margin-bottom: 20px;
 }
 
-/* Os poemas têm vários parágrafos, então cada um precisa respirar. */
 .message-text p {
   margin: 0 0 1.15em;
 }
@@ -576,7 +580,7 @@ h2 em {
 }
 
 
-/* As três cartas ficam lado a lado no computador e empilhadas no celular. */
+/* Cartas */
 
 .section-block {
   padding: 95px 0;
@@ -658,7 +662,8 @@ h2 em {
 }
 
 
-/* A parte da história tem seu próprio cenário, feito só com CSS. */
+/* A ilustração da história também é feita em CSS.
+   Preferi manter o mesmo estilo da lua que aparece no início. */
 
 .story {
   display: grid;
@@ -730,7 +735,6 @@ h2 em {
   left: calc(50% - 205px);
 }
 
-/* Duas camadas de colinas dão profundidade ao cenário. */
 .story-hill {
   position: absolute;
   bottom: -60px;
@@ -789,7 +793,7 @@ h2 em {
 }
 
 
-/* O fim da página é simples, quase como a última linha de uma carta. */
+/* Encerramento */
 
 .closing {
   text-align: center;
@@ -843,7 +847,7 @@ h2 em {
 
 
 /* As cartas e a história usam a mesma janela.
-   O fundo escurece para deixar a leitura em destaque. */
+   O JavaScript troca o conteúdo conforme a escolha. */
 
 .modal-backdrop {
   position: fixed;
@@ -856,7 +860,9 @@ h2 em {
   padding: 20px;
 }
 
-/* Mesmo usando display:grid, o atributo hidden precisa continuar funcionando. */
+/* Preciso manter esta regra porque o display:grid pode
+   fazer a janela aparecer mesmo quando está marcada como hidden. */
+
 .modal-backdrop[hidden],
 .message-card[hidden] {
   display: none;
@@ -913,7 +919,8 @@ h2 em {
 }
 
 
-/* No celular, tudo precisa continuar bonito sem apertar a leitura. */
+/* No celular, as cartas passam a ficar uma abaixo da outra.
+   Também reduzi alguns espaçamentos para facilitar a leitura. */
 
 @media (max-width: 700px) {
 
@@ -1047,8 +1054,8 @@ h2 em {
 }
 
 
-/* Algumas pessoas preferem menos animações.
-   Aqui respeitamos essa escolha sem mudar o conteúdo. */
+/* Algumas pessoas preferem menos movimento.
+   Aqui o navegador pode desativar animações sem afetar o conteúdo. */
 
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -1062,33 +1069,30 @@ h2 em {
 }
 
 
-/* Pequenos cuidados extras para leitura, navegação e telas menores. */
+/* Ajustes extras que fiz pensando principalmente na leitura pelo celular. */
 
-/* Textos grandes não devem escapar dos limites dos cartões. */
 .message-card,
 .modal,
 .letter-card {
   overflow-wrap: break-word;
 }
 
-/* Um pouco mais de espaço entre as linhas ajuda nas poesias longas. */
 .message-text {
   line-height: 1.6;
 }
 
-/* Se a janela for maior que a tela, ainda será possível rolar o conteúdo. */
 .modal-backdrop {
   overflow-y: auto;
   overscroll-behavior: contain;
 }
 
-/* Botões pequenos também precisam ser fáceis de tocar. */
 .quiet-button,
 .text-button {
   min-height: 44px;
 }
 
-/* Quem usa teclado precisa enxergar claramente onde está o foco. */
+/* Também deixei um destaque para quem navega usando o teclado. */
+
 .star-point:focus-visible,
 .letter-card:focus-visible,
 .close-button:focus-visible {
@@ -1097,16 +1101,13 @@ h2 em {
 }
 
 
-/* Ajustes finais para o toque e a leitura no celular. */
-
 @media (max-width: 700px) {
 
-  /* Mantemos a altura do desenho para não bagunçar as estrelas. */
   .constellation {
     height: 410px;
   }
 
-  /* O brilho é pequeno, mas a área de toque precisa ser confortável. */
+  /* O símbolo da estrela é pequeno, mas a área de toque não pode ser. */
   .star-point {
     min-width: 44px;
     min-height: 44px;
@@ -1114,13 +1115,11 @@ h2 em {
     touch-action: manipulation;
   }
 
-  /* No celular, o destaque da estrela não precisa aumentar tanto. */
   .star-point:hover,
   .star-point:focus-visible {
     transform: translate(-50%, -50%) scale(1.1);
   }
 
-  /* Mais espaço nas laterais e entre as linhas dos poemas. */
   .message-card {
     padding: 36px 20px;
     scroll-margin-top: 20px;
@@ -1131,13 +1130,13 @@ h2 em {
     line-height: 1.65;
   }
 
-  /* As cartas continuam fáceis de abrir mesmo em telas pequenas. */
   .letter-card {
     min-height: 180px;
     touch-action: manipulation;
   }
 
-  /* A janela se adapta à altura disponível, sem cortar os botões. */
+  /* A janela precisa caber na altura disponível.
+     Os textos mais longos continuam acessíveis pela rolagem. */
   .modal-backdrop {
     padding: 12px;
   }
@@ -1152,14 +1151,10 @@ h2 em {
     line-height: 1.7;
   }
 
-  /* Nebulosas mais leves para não sobrecarregar o visual no celular. */
   .nebula {
     filter: blur(55px);
   }
 }
-
-
-/* Um último ajuste para celulares com telas especialmente estreitas. */
 
 @media (max-width: 380px) {
 
@@ -1177,8 +1172,9 @@ h2 em {
   }
 }
 
-/* Cada estrela tem seu momento de brilhar.
-   As que ainda não chegaram ficam discretas, mas continuam no céu. */
+
+/* O sistema de progressão foi uma das últimas ideias que acrescentei.
+   A intenção é que cada estrela tenha seu momento, sem pular mensagens. */
 
 .star-point:disabled {
   cursor: default;
@@ -1192,14 +1188,17 @@ h2 em {
   animation: none;
 }
 
-/* As estrelas já descobertas continuam iluminadas. */
+/* As estrelas anteriores continuam disponíveis para releitura. */
+
 .estrela-descoberta {
   color: #d9d0ff;
   opacity: 0.85;
   filter: drop-shadow(0 0 7px rgba(204,190,255,0.5));
 }
 
-/* A próxima estrela chama discretamente por ela. */
+/* A próxima estrela recebe um brilho diferente.
+   É uma maneira discreta de mostrar por onde continuar. */
+
 .estrela-seguinte {
   color: #ffffff;
   opacity: 1;
@@ -1207,7 +1206,6 @@ h2 em {
   animation: chamarEstrela 2.5s ease-in-out infinite;
 }
 
-/* Um brilho suave, como se a estrela estivesse esperando. */
 @keyframes chamarEstrela {
   0%, 100% {
     filter: drop-shadow(0 0 7px rgba(225,214,255,0.6));
@@ -1218,21 +1216,21 @@ h2 em {
   }
 }
 
-/* Quem prefere menos movimento continua vendo o destaque, sem pulsação. */
 @media (prefers-reduced-motion: reduce) {
   .estrela-seguinte {
     animation: none;
   }
 }
 
-/* As próximas partes continuam visíveis, mas ainda têm seus segredos. */
+
+/* Decidi manter as próximas seções visíveis, mas bloqueadas.
+   Assim dá para perceber que existe mais conteúdo sem adiantar a jornada. */
 
 .letters,
 .story {
   position: relative;
 }
 
-/* Enquanto estiverem bloqueadas, ficam mais discretas. */
 .letters.bloqueada .letter-grid,
 .story.bloqueada .story-copy,
 .story.bloqueada .story-art {
@@ -1241,14 +1239,14 @@ h2 em {
   transition: opacity 0.8s ease, filter 0.8s ease;
 }
 
-/* Nada de abrir cartas ou histórias antes da hora. */
 .letters.bloqueada .letter-card,
 .story.bloqueada #storyButton {
   cursor: default;
   pointer-events: none;
 }
 
-/* Um pequeno aviso para quem tentar adiantar a jornada. */
+/* Os avisos aparecem apenas enquanto a etapa estiver bloqueada. */
+
 .letters.bloqueada::after {
   content: "Antes destas cartas, existem estrelas esperando por você.";
 }
@@ -1274,7 +1272,6 @@ h2 em {
   pointer-events: none;
 }
 
-/* Quando uma etapa é liberada, tudo volta ao visual original. */
 .letters:not(.bloqueada) .letter-grid,
 .story:not(.bloqueada) .story-copy,
 .story:not(.bloqueada) .story-art {
