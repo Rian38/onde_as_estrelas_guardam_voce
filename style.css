@@ -1,4 +1,6 @@
- :root {
+/* As cores e fontes que dão identidade ao nosso pequeno universo. */
+
+:root {
   --night: #090b1b;
   --night-soft: #10142b;
   --ink: #e9e7f3;
@@ -6,144 +8,1276 @@
   --lavender: #c7b9f5;
   --lavender-bright: #e2d8ff;
   --rose: #d7a9c6;
-  --line: rgba(199, 185, 245, .22);
+  --line: rgba(199, 185, 245, 0.22);
   --serif: "Cormorant Garamond", Georgia, serif;
   --sans: "DM Sans", Arial, sans-serif;
 }
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { margin: 0; background: var(--night); color: var(--ink); font-family: var(--sans); font-weight: 300; overflow-x: hidden; }
-button, a { font: inherit; }
-button { color: inherit; }
-button:focus-visible, a:focus-visible { outline: 2px solid var(--lavender-bright); outline-offset: 5px; }
-.sky { position: fixed; inset: 0; z-index: -1; overflow: hidden; background: radial-gradient(ellipse at 50% 0%, #1a1e42 0%, #0c1027 42%, #080a18 100%); }
-#starfield { position: absolute; inset: 0; width: 100%; height: 100%; opacity: .78; }
-.nebula { position: absolute; width: 65vw; height: 50vw; border-radius: 50%; filter: blur(85px); opacity: .10; pointer-events: none; }
-.nebula-one { top: 8%; left: -20%; background: #7767ce; transform: rotate(-28deg); }
-.nebula-two { top: 45%; right: -25%; background: #8c4d87; transform: rotate(30deg); }
-.shooting-star { position: absolute; top: 19%; right: 14%; width: 90px; height: 1px; background: linear-gradient(90deg, transparent, rgba(232,225,255,.7), transparent); transform: rotate(-34deg); opacity: 0; animation: shoot 12s 3s infinite; }
-@keyframes shoot { 0%, 75%, 100% { opacity: 0; transform: translate(0,0) rotate(-34deg); } 77% { opacity: .8; } 82% { opacity: 0; transform: translate(-130px,80px) rotate(-34deg); } }
-.topbar { position: absolute; top: 0; left: 0; width: 100%; padding: 28px clamp(22px, 5vw, 72px); display: flex; justify-content: space-between; align-items: center; z-index: 5; }
-.wordmark { display: inline-flex; gap: 10px; align-items: center; color: #c6c3dc; text-decoration: none; font-size: 10px; text-transform: uppercase; letter-spacing: .2em; }
-.wordmark-star { color: var(--lavender); font-size: 17px; }
-.quiet-button { background: transparent; border: 0; color: #aaa9c3; cursor: pointer; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; padding: 8px 0; transition: color .25s; }
-.quiet-button:hover { color: white; }
-.quiet-button span { margin-left: 7px; color: var(--lavender); }
-.hero { min-height: 100svh; padding: 135px 22px 55px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; position: relative; }
-.eyebrow, .section-kicker { color: #a9a7c8; text-transform: uppercase; letter-spacing: .23em; font-size: 9px; line-height: 1.8; }
-.eyebrow { display: flex; align-items: center; gap: 13px; }
-.eyebrow-line { width: 28px; height: 1px; background: #8c82b8; opacity: .6; }
-.moon-wrap { position: relative; width: 128px; height: 112px; margin: 30px 0 4px; display: grid; place-items: center; }
-.moon { width: 67px; height: 67px; border-radius: 50%; background: #e9e5ff; box-shadow: 0 0 24px rgba(207,196,255,.45), 0 0 75px rgba(162,143,238,.17); position: relative; }
-.moon::after { content: ""; position: absolute; width: 65px; height: 65px; border-radius: 50%; background: #171a38; top: -8px; left: 19px; }
-.moon-spark { position: absolute; color: #d7ccff; }
-.spark-a { top: 6px; left: 15px; font-size: 17px; }
-.spark-b { bottom: 4px; right: 17px; font-size: 25px; }
-.spark-c { top: 20px; right: 7px; font-size: 10px; }
-h1, h2, p { margin-top: 0; }
-h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(48px, 7.2vw, 88px); line-height: .91; letter-spacing: -.035em; margin: 13px 0 23px; }
-h1 em, h2 em { font-weight: 400; color: var(--lavender); }
-.hero-copy { font-size: 12px; line-height: 2; color: #b8b6d0; letter-spacing: .025em; }
-.primary-button { margin-top: 25px; border: 1px solid rgba(205,193,250,.42); background: rgba(174,156,234,.08); color: #eee9ff; border-radius: 2px; padding: 15px 19px 15px 23px; display: inline-flex; align-items: center; gap: 34px; cursor: pointer; text-transform: uppercase; letter-spacing: .14em; font-size: 9px; transition: background .3s, border-color .3s, transform .3s; }
-.primary-button:hover { background: rgba(174,156,234,.17); border-color: rgba(205,193,250,.8); transform: translateY(-2px); }
-.button-arrow { color: var(--lavender); font-size: 15px; }
-.scroll-note { position: absolute; bottom: 27px; display: flex; align-items: center; gap: 12px; color: #777893; font-size: 8px; letter-spacing: .16em; text-transform: uppercase; }
-.scroll-line { height: 1px; width: 23px; background: #585a7b; }
-.explore, .section-block { max-width: 1050px; width: calc(100% - 48px); margin: 0 auto; }
-.explore { padding: 110px 0 80px; }
-.section-heading { text-align: center; max-width: 560px; margin: 0 auto 45px; }
-.section-heading h2, .story h2, .modal h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(38px, 5vw, 57px); line-height: 1; letter-spacing: -.02em; margin: 15px 0 15px; }
-.section-heading p { color: var(--muted); font-size: 12px; line-height: 1.9; }
-.constellation { height: 340px; max-width: 700px; margin: 0 auto; position: relative; border-top: 1px solid rgba(183,173,234,.08); border-bottom: 1px solid rgba(183,173,234,.08); background: radial-gradient(ellipse at center, rgba(91,82,154,.08), transparent 68%); }
-.constellation-lines { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
-.constellation-lines path { fill: none; stroke: rgba(179,166,236,.23); stroke-width: 1; stroke-dasharray: 3 7; }
-.star-point { position: absolute; border: 0; background: transparent; color: #d9d0ff; padding: 8px; cursor: pointer; transform: translate(-50%,-50%); transition: transform .25s, color .25s, filter .25s; filter: drop-shadow(0 0 7px rgba(204,190,255,.7)); }
-.star-point span { display: block; font-size: 24px; animation: twinkle 3s ease-in-out infinite; }
-.star-point:hover, .star-point:focus-visible { color: white; transform: translate(-50%,-50%) scale(1.4); filter: drop-shadow(0 0 14px rgba(225,214,255,1)); }
-.star-one { left: 13.5%; top: 66%; }.star-two { left: 28%; top: 33%; }.star-three { left: 45%; top: 53%; }.star-four { left: 60%; top: 22%; }.star-five { left: 78%; top: 47%; }.star-six { left: 89%; top: 26%; }
-@keyframes twinkle { 0%,100% { opacity: .68; } 50% { opacity: 1; } }
-.constellation-label { position: absolute; color: #8584a6; font-size: 9px; letter-spacing: .08em; pointer-events: none; }
-.label-one { left: 3%; top: 75%; }.label-two { left: 17%; top: 21%; }.label-three { left: 37%; top: 63%; }.label-four { left: 54%; top: 10%; }.label-five { left: 71%; top: 58%; }.label-six { left: 80%; top: 13%; }
-.message-card { position: relative; max-width: 520px; margin: 22px auto 0; padding: 32px 38px; text-align: center; background: rgba(18,21,47,.78); border: 1px solid var(--line); box-shadow: 0 18px 60px rgba(0,0,0,.18); animation: rise .45s ease both; }
-@keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-.close-button { position: absolute; top: 10px; right: 13px; border: 0; background: transparent; color: #aaa6c7; font-size: 25px; cursor: pointer; line-height: 1; }
-.card-sparkle, .card-end { color: var(--lavender); }
-.message-label { color: #a9a4c8; font-size: 9px; letter-spacing: .2em; text-transform: uppercase; margin: 13px 0 18px; }
-.message-text { font-family: var(--serif); font-size: 26px; line-height: 1.4; color: #e6e1f5; margin-bottom: 20px; }
-.section-block { padding: 95px 0; border-top: 1px solid rgba(183,173,234,.12); }
-.letter-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 15px; }
-.letter-card { position: relative; min-height: 245px; padding: 27px 24px 22px; text-align: left; background: linear-gradient(145deg, rgba(29,31,62,.72), rgba(14,16,37,.7)); border: 1px solid rgba(191,177,239,.17); cursor: pointer; display: flex; flex-direction: column; align-items: flex-start; transition: transform .3s, border-color .3s, background .3s; }
-.letter-card:hover { transform: translateY(-5px); border-color: rgba(191,177,239,.45); background: linear-gradient(145deg, rgba(40,40,78,.82), rgba(14,16,37,.8)); }
-.envelope-icon { width: 42px; height: 32px; display: grid; place-items: center; border: 1px solid rgba(206,191,249,.45); color: #cfc3f6; margin-bottom: 29px; font-size: 19px; }
-.letter-tag { color: #a49cc6; text-transform: uppercase; font-size: 8px; letter-spacing: .17em; margin-bottom: 11px; }
-.letter-title { font-family: var(--serif); font-size: 25px; line-height: 1.1; color: #e9e4f6; }
-.letter-open { margin-top: auto; padding-top: 23px; color: #b8addf; font-size: 9px; text-transform: uppercase; letter-spacing: .12em; }
-.letter-open span { margin-left: 8px; font-size: 13px; }
-.story { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 60px; }
-.story-art { height: 320px; position: relative; overflow: hidden; background: radial-gradient(ellipse at 50% 55%, rgba(102,84,168,.22), transparent 64%); border: 1px solid rgba(183,173,234,.10); }
-.story-moon { position: absolute; width: 68px; height: 68px; border-radius: 50%; background: #dcd7f6; box-shadow: 0 0 45px rgba(192,177,255,.25); top: 54px; left: calc(50% - 34px); }
-.story-moon::after { content: ""; position: absolute; width: 66px; height: 66px; background: #151735; border-radius: 50%; top: -7px; left: 18px; }
-.story-star { position: absolute; top: 35px; left: 28%; color: #e4d9ff; font-size: 18px; }
-.story-orbit { position: absolute; border: 1px solid rgba(192,176,244,.15); border-radius: 50%; transform: rotate(-27deg); }
-.orbit-one { width: 340px; height: 140px; top: 70px; left: calc(50% - 170px); }
-.orbit-two { width: 410px; height: 190px; top: 45px; left: calc(50% - 205px); }
-.story-hill { position: absolute; bottom: -60px; width: 130%; height: 170px; border-radius: 50% 50% 0 0; }
-.hill-back { left: -30%; background: linear-gradient(130deg, #25254e, #11142e); transform: rotate(-8deg); }
-.hill-front { left: 8%; bottom: -90px; background: linear-gradient(120deg, #151831, #090b1b); transform: rotate(9deg); }
-.story-copy h2 { margin-top: 16px; }
-.story-copy p { max-width: 390px; color: var(--muted); font-size: 12px; line-height: 2; margin: 20px 0 24px; }
-.text-button { border: 0; background: transparent; padding: 0 0 7px; border-bottom: 1px solid rgba(199,185,245,.45); color: #ded5ff; cursor: pointer; font-size: 9px; text-transform: uppercase; letter-spacing: .14em; transition: color .2s, border-color .2s; }
-.text-button:hover { color: white; border-color: white; }
-.text-button span { margin-left: 10px; color: var(--lavender); font-size: 14px; }
-.closing { text-align: center; padding-top: 70px; padding-bottom: 95px; }
-.closing-star { color: var(--lavender); font-size: 23px; margin-bottom: 23px; }
-.closing-line { font-family: var(--serif); font-size: clamp(27px, 4vw, 39px); color: #e6e0f5; margin-bottom: 13px; }
-.closing-subline { color: var(--muted); font-size: 11px; line-height: 1.9; }
-.signature { display: block; margin-top: 27px; color: #c7b7ee; font-family: var(--serif); font-size: 20px; font-style: italic; }
-.footer { padding: 20px 24px; border-top: 1px solid rgba(183,173,234,.1); display: flex; justify-content: center; gap: 18px; color: #777893; text-transform: uppercase; letter-spacing: .14em; font-size: 8px; }
-.footer span:last-child { color: var(--lavender); }
-.modal-backdrop { position: fixed; z-index: 20; inset: 0; background: rgba(4,5,16,.78); backdrop-filter: blur(10px); display: grid; place-items: center; padding: 20px; }
-.modal-backdrop[hidden], .message-card[hidden] { display: none; }
-.modal { position: relative; width: min(100%, 590px); max-height: min(82svh, 760px); overflow-y: auto; padding: 45px clamp(25px, 6vw, 60px) 38px; text-align: center; background: linear-gradient(150deg, #171a39, #0d1025 75%); border: 1px solid rgba(199,185,245,.3); box-shadow: 0 30px 100px rgba(0,0,0,.45); animation: rise .35s ease both; }
-.modal-ornament { color: var(--lavender); font-size: 24px; }
-.modal .section-kicker { margin: 15px 0 0; }
-.modal h2 { font-size: clamp(34px, 5vw, 48px); margin: 12px 0 25px; }
-.modal-content { color: #d1cee3; font-family: var(--serif); font-size: 21px; line-height: 1.65; text-align: left; }
-.modal-content p { margin-bottom: 18px; }
-.modal-content .poem { white-space: pre-line; font-style: italic; color: #e6ddfa; }
-.modal-done { margin-top: 18px; }
-@media (max-width: 700px) {
-  .topbar { padding: 22px 20px; }
-  .wordmark { font-size: 8px; letter-spacing: .13em; }
-  .quiet-button { font-size: 8px; }
-  .hero { min-height: 92svh; padding-top: 120px; }
-  .eyebrow { font-size: 7px; letter-spacing: .16em; gap: 8px; }
-  .eyebrow-line { width: 17px; }
-  .moon-wrap { margin-top: 27px; }
-  .hero-copy { max-width: 310px; font-size: 11px; }
-  .desktop-break { display: none; }
-  .explore, .section-block { width: calc(100% - 36px); }
-  .explore { padding-top: 78px; }
-  .section-block { padding: 75px 0; }
-  .section-heading { margin-bottom: 32px; }
-  .constellation { height: 300px; margin: 0 -2px; }
-  .constellation-label { font-size: 7px; letter-spacing: 0; }
-  .star-point span { font-size: 22px; }
-  .label-one { left: 0%; }.label-two { left: 13%; }.label-three { left: 33%; }.label-four { left: 50%; }.label-five { left: 67%; }.label-six { left: 76%; }
-  .message-card { padding: 28px 24px; }
-  .message-text { font-size: 23px; }
-  .letter-grid { grid-template-columns: 1fr; gap: 12px; }
-  .letter-card { min-height: 195px; padding: 22px; }
-  .envelope-icon { margin-bottom: 18px; }
-  .letter-open { padding-top: 18px; }
-  .story { grid-template-columns: 1fr; gap: 30px; }
-  .story-art { height: 260px; order: 2; }
-  .story-copy { order: 1; text-align: center; }
-  .story-copy p { margin-left: auto; margin-right: auto; }
-  .closing { padding-bottom: 75px; }
-  .modal { padding-top: 40px; }
-  .modal-content { font-size: 19px; }
+
+* {
+  box-sizing: border-box;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--night);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+button, a {
+  font: inherit;
+}
+
+button {
+  color: inherit;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--lavender-bright);
+  outline-offset: 4px;
+}
+
+h1, h2, p {
+  margin-top: 0;
+}
+
+
+/* O céu fica sempre ao fundo, com nebulosas e estrelas animadas. */
+
+.sky {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background: radial-gradient(
+    ellipse at 50% 0%,
+    #1a1e42 0%,
+    #0c1027 42%,
+    #080a18 100%
+  );
+}
+
+#starfield {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.78;
+}
+
+.nebula {
+  position: absolute;
+  width: 65vw;
+  height: 50vw;
+  border-radius: 50%;
+  filter: blur(85px);
+  opacity: 0.10;
+  pointer-events: none;
+}
+
+.nebula-one {
+  top: 8%;
+  left: -20%;
+  background: #7767ce;
+  transform: rotate(-28deg);
+}
+
+.nebula-two {
+  top: 45%;
+  right: -25%;
+  background: #8c4d87;
+  transform: rotate(30deg);
+}
+
+.shooting-star {
+  position: absolute;
+  top: 19%;
+  right: 14%;
+  width: 90px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(232,225,255,0.7),
+    transparent
+  );
+  transform: rotate(-34deg);
+  opacity: 0;
+  animation: shoot 12s 3s infinite;
+}
+
+@keyframes shoot {
+  0%, 75%, 100% {
+    opacity: 0;
+    transform: translate(0,0) rotate(-34deg);
+  }
+
+  77% {
+    opacity: 0.8;
+  }
+
+  82% {
+    opacity: 0;
+    transform: translate(-130px,80px) rotate(-34deg);
+  }
+}
+
+
+/* O cabeçalho é discreto para não tirar a atenção do céu. */
+
+.topbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 28px clamp(22px, 5vw, 72px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 5;
+}
+
+.wordmark {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  color: #c6c3dc;
+  text-decoration: none;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+.wordmark-star {
+  color: var(--lavender);
+  font-size: 17px;
+}
+
+.quiet-button {
+  background: transparent;
+  border: 0;
+  color: #aaa9c3;
+  cursor: pointer;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 12px 0;
+  transition: color 0.25s;
+}
+
+.quiet-button:hover {
+  color: white;
+}
+
+.quiet-button span {
+  margin-left: 7px;
+  color: var(--lavender);
+}
+
+
+/* A entrada do site: lua, título e o primeiro convite para explorar. */
+
+.hero {
+  min-height: 100svh;
+  padding: 135px 22px 55px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.eyebrow,
+.section-kicker {
+  color: #a9a7c8;
+  text-transform: uppercase;
+  letter-spacing: 0.23em;
+  font-size: 10px;
+  line-height: 1.8;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.eyebrow-line {
+  width: 28px;
+  height: 1px;
+  background: #8c82b8;
+  opacity: 0.6;
+}
+
+.moon-wrap {
+  position: relative;
+  width: 128px;
+  height: 112px;
+  margin: 30px 0 4px;
+  display: grid;
+  place-items: center;
+}
+
+.moon {
+  width: 67px;
+  height: 67px;
+  border-radius: 50%;
+  background: #e9e5ff;
+  box-shadow:
+    0 0 24px rgba(207,196,255,0.45),
+    0 0 75px rgba(162,143,238,0.17);
+  position: relative;
+}
+
+/* O recorte escuro é o que transforma o círculo em uma lua crescente. */
+.moon::after {
+  content: "";
+  position: absolute;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background: #171a38;
+  top: -8px;
+  left: 19px;
+}
+
+.moon-spark {
+  position: absolute;
+  color: #d7ccff;
+}
+
+.spark-a {
+  top: 6px;
+  left: 15px;
+  font-size: 17px;
+}
+
+.spark-b {
+  bottom: 4px;
+  right: 17px;
+  font-size: 25px;
+}
+
+.spark-c {
+  top: 20px;
+  right: 7px;
+  font-size: 10px;
+}
+
+h1 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(48px, 7.2vw, 88px);
+  line-height: 0.91;
+  letter-spacing: -0.035em;
+  margin: 13px 0 23px;
+}
+
+h1 em,
+h2 em {
+  font-weight: 400;
+  color: var(--lavender);
+}
+
+.hero-copy {
+  font-size: 12px;
+  line-height: 2;
+  color: #b8b6d0;
+  letter-spacing: 0.025em;
+}
+
+.primary-button {
+  margin-top: 25px;
+  border: 1px solid rgba(205,193,250,0.42);
+  background: rgba(174,156,234,0.08);
+  color: #eee9ff;
+  border-radius: 2px;
+  padding: 15px 19px 15px 23px;
+  display: inline-flex;
+  align-items: center;
+  gap: 34px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 10px;
+  transition: background 0.3s, border-color 0.3s, transform 0.3s;
+}
+
+.primary-button:hover {
+  background: rgba(174,156,234,0.17);
+  border-color: rgba(205,193,250,0.8);
+  transform: translateY(-2px);
+}
+
+.button-arrow {
+  color: var(--lavender);
+  font-size: 15px;
+}
+
+.scroll-note {
+  position: absolute;
+  bottom: 27px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #999ab5;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.scroll-line {
+  height: 1px;
+  width: 23px;
+  background: #585a7b;
+}
+
+
+/* Um padrão para os títulos e espaçamentos das próximas partes. */
+
+.explore,
+.section-block {
+  max-width: 1050px;
+  width: calc(100% - 48px);
+  margin: 0 auto;
+}
+
+.explore {
+  padding: 110px 0 80px;
+}
+
+.section-heading {
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto 45px;
+}
+
+.section-heading h2,
+.story h2,
+.modal h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(38px, 5vw, 57px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin: 15px 0;
+}
+
+.section-heading p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+
+/* A constelação de Escorpião, onde ficam guardadas as 18 mensagens. */
+
+.constellation {
+  position: relative;
+  height: 440px;
+  max-width: 700px;
+  margin: 0 auto;
+  border-top: 1px solid rgba(183,173,234,0.08);
+  border-bottom: 1px solid rgba(183,173,234,0.08);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(91,82,154,0.08),
+    transparent 68%
+  );
+}
+
+/* Essa parte é importante: sem o fill:none, o SVG pode criar
+   aquele preenchimento escuro que já apareceu nos nossos testes. */
+
+.constellation-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.constellation-lines path,
+.constellation-lines polyline {
+  fill: none !important;
+  stroke: rgba(179,166,236,0.38);
+  stroke-width: 1.5;
+  stroke-dasharray: 3 7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Cada estrela é um botão de verdade, com brilho e área de clique. */
+
+.star-point {
+  position: absolute;
+  z-index: 2;
+  min-width: 44px;
+  min-height: 44px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  background: transparent;
+  color: #d9d0ff;
+  padding: 6px;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  transition: transform 0.25s, color 0.25s, filter 0.25s;
+  filter: drop-shadow(0 0 7px rgba(204,190,255,0.7));
+}
+
+.star-point span {
+  display: block;
+  font-size: 24px;
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+.star-point:hover,
+.star-point:focus-visible {
+  color: white;
+  transform: translate(-50%, -50%) scale(1.25);
+  filter: drop-shadow(0 0 14px rgba(225,214,255,1));
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.68;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+/* As posições seguem uma versão artística de Scorpius.
+   Usamos porcentagens para manter o desenho adaptável à tela. */
+
+.estrela-1  { left: 20%;   top: 17.05%; }
+.estrela-2  { left: 24%;   top: 25.45%; }
+.estrela-3  { left: 27.5%; top: 34.32%; }
+.estrela-4  { left: 30.5%; top: 15.91%; }
+.estrela-5  { left: 19.5%; top: 38.64%; }
+.estrela-6  { left: 35%;   top: 41.59%; }
+
+/* Antares é conhecida como o coração do Escorpião. */
+.estrela-7  { left: 41.5%; top: 44.77%; }
+
+/* Daqui em diante, seguimos pelo corpo. */
+.estrela-8  { left: 49%;   top: 55.68%; }
+.estrela-9  { left: 54%;   top: 67.5%; }
+.estrela-10 { left: 57%;   top: 57.95%; }
+
+/* A cauda começa a curvar o desenho. */
+.estrela-11 { left: 61%;   top: 78.41%; }
+.estrela-12 { left: 69%;   top: 84.09%; }
+.estrela-13 { left: 72%;   top: 73.41%; }
+.estrela-14 { left: 77%;   top: 81.14%; }
+.estrela-15 { left: 82%;   top: 71.82%; }
+
+/* As últimas estrelas formam o ferrão. */
+.estrela-16 { left: 82.5%; top: 59.77%; }
+.estrela-17 { left: 79%;   top: 48.86%; }
+.estrela-18 { left: 85.5%; top: 43.64%; }
+
+.constellation-caption {
+  position: absolute;
+  right: 2%;
+  bottom: 12px;
+  color: #9994bd;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  pointer-events: none;
+}
+
+
+/* Quando uma estrela é escolhida, a poesia aparece neste cartão. */
+
+.message-card {
+  position: relative;
+  max-width: 600px;
+  margin: 24px auto 0;
+  padding: 36px 42px;
+  text-align: center;
+  background: rgba(18,21,47,0.94);
+  border: 1px solid var(--line);
+  box-shadow: 0 18px 60px rgba(0,0,0,0.18);
+  animation: rise 0.45s ease both;
+  scroll-margin-top: 28px;
+}
+
+/* Uma entrada suave para as mensagens e janelas. */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 13px;
+  min-width: 44px;
+  min-height: 44px;
+  border: 0;
+  background: transparent;
+  color: #aaa6c7;
+  font-size: 25px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.close-button:hover {
+  color: white;
+}
+
+.card-sparkle,
+.card-end {
+  color: var(--lavender);
+}
+
+.message-label {
+  color: #bdb3dd;
+  font-size: 11px;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+  margin: 13px 0 22px;
+}
+
+.message-text {
+  font-family: var(--serif);
+  font-size: 25px;
+  line-height: 1.48;
+  color: #e6e1f5;
+  margin-bottom: 20px;
+}
+
+/* Os poemas têm vários parágrafos, então cada um precisa respirar. */
+.message-text p {
+  margin: 0 0 1.15em;
+}
+
+.message-text p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* As três cartas ficam lado a lado no computador e empilhadas no celular. */
+
+.section-block {
+  padding: 95px 0;
+  border-top: 1px solid rgba(183,173,234,0.12);
+}
+
+.letter-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.letter-card {
+  position: relative;
+  min-height: 245px;
+  padding: 27px 24px 22px;
+  text-align: left;
+  background: linear-gradient(
+    145deg,
+    rgba(29,31,62,0.72),
+    rgba(14,16,37,0.7)
+  );
+  border: 1px solid rgba(191,177,239,0.17);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: transform 0.3s, border-color 0.3s, background 0.3s;
+}
+
+.letter-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(191,177,239,0.45);
+  background: linear-gradient(
+    145deg,
+    rgba(40,40,78,0.82),
+    rgba(14,16,37,0.8)
+  );
+}
+
+.envelope-icon {
+  width: 42px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(206,191,249,0.45);
+  color: #cfc3f6;
+  margin-bottom: 29px;
+  font-size: 19px;
+}
+
+.letter-tag {
+  color: #b6acd6;
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 0.17em;
+  margin-bottom: 11px;
+}
+
+.letter-title {
+  font-family: var(--serif);
+  font-size: 25px;
+  line-height: 1.1;
+  color: #e9e4f6;
+}
+
+.letter-open {
+  margin-top: auto;
+  padding-top: 23px;
+  color: #b8addf;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.letter-open span {
+  margin-left: 8px;
+  font-size: 13px;
+}
+
+
+/* A parte da história tem seu próprio cenário, feito só com CSS. */
+
+.story {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 60px;
+}
+
+.story-art {
+  height: 320px;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(
+    ellipse at 50% 55%,
+    rgba(102,84,168,0.22),
+    transparent 64%
+  );
+  border: 1px solid rgba(183,173,234,0.10);
+}
+
+.story-moon {
+  position: absolute;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: #dcd7f6;
+  box-shadow: 0 0 45px rgba(192,177,255,0.25);
+  top: 54px;
+  left: calc(50% - 34px);
+}
+
+.story-moon::after {
+  content: "";
+  position: absolute;
+  width: 66px;
+  height: 66px;
+  background: #151735;
+  border-radius: 50%;
+  top: -7px;
+  left: 18px;
+}
+
+.story-star {
+  position: absolute;
+  top: 35px;
+  left: 28%;
+  color: #e4d9ff;
+  font-size: 18px;
+}
+
+.story-orbit {
+  position: absolute;
+  border: 1px solid rgba(192,176,244,0.15);
+  border-radius: 50%;
+  transform: rotate(-27deg);
+}
+
+.orbit-one {
+  width: 340px;
+  height: 140px;
+  top: 70px;
+  left: calc(50% - 170px);
+}
+
+.orbit-two {
+  width: 410px;
+  height: 190px;
+  top: 45px;
+  left: calc(50% - 205px);
+}
+
+/* Duas camadas de colinas dão profundidade ao cenário. */
+.story-hill {
+  position: absolute;
+  bottom: -60px;
+  width: 130%;
+  height: 170px;
+  border-radius: 50% 50% 0 0;
+}
+
+.hill-back {
+  left: -30%;
+  background: linear-gradient(130deg, #25254e, #11142e);
+  transform: rotate(-8deg);
+}
+
+.hill-front {
+  left: 8%;
+  bottom: -90px;
+  background: linear-gradient(120deg, #151831, #090b1b);
+  transform: rotate(9deg);
+}
+
+.story-copy h2 {
+  margin-top: 16px;
+}
+
+.story-copy p {
+  max-width: 390px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 2;
+  margin: 20px 0 24px;
+}
+
+.text-button {
+  border: 0;
+  background: transparent;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(199,185,245,0.45);
+  color: #ded5ff;
+  cursor: pointer;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.text-button:hover {
+  color: white;
+  border-color: white;
+}
+
+.text-button span {
+  margin-left: 10px;
+  color: var(--lavender);
+  font-size: 14px;
+}
+
+
+/* O fim da página é simples, quase como a última linha de uma carta. */
+
+.closing {
+  text-align: center;
+  padding-top: 70px;
+  padding-bottom: 95px;
+}
+
+.closing-star {
+  color: var(--lavender);
+  font-size: 23px;
+  margin-bottom: 23px;
+}
+
+.closing-line {
+  font-family: var(--serif);
+  font-size: clamp(27px, 4vw, 39px);
+  color: #e6e0f5;
+  margin-bottom: 13px;
+}
+
+.closing-subline {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+.signature {
+  display: block;
+  margin-top: 27px;
+  color: #c7b7ee;
+  font-family: var(--serif);
+  font-size: 20px;
+  font-style: italic;
+}
+
+.footer {
+  padding: 20px 24px;
+  border-top: 1px solid rgba(183,173,234,0.1);
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  color: #999ab5;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 9px;
+}
+
+.footer span:last-child {
+  color: var(--lavender);
+}
+
+
+/* As cartas e a história usam a mesma janela.
+   O fundo escurece para deixar a leitura em destaque. */
+
+.modal-backdrop {
+  position: fixed;
+  z-index: 20;
+  inset: 0;
+  background: rgba(4,5,16,0.78);
+  backdrop-filter: blur(10px);
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+
+/* Mesmo usando display:grid, o atributo hidden precisa continuar funcionando. */
+.modal-backdrop[hidden],
+.message-card[hidden] {
+  display: none;
+}
+
+.modal {
+  position: relative;
+  width: min(100%, 590px);
+  max-height: min(82svh, 760px);
+  overflow-y: auto;
+  padding: 45px clamp(25px, 6vw, 60px) 38px;
+  text-align: center;
+  background: linear-gradient(150deg, #171a39, #0d1025 75%);
+  border: 1px solid rgba(199,185,245,0.3);
+  box-shadow: 0 30px 100px rgba(0,0,0,0.45);
+  animation: rise 0.35s ease both;
+  scrollbar-color: #62567f #11132b;
+}
+
+.modal-ornament {
+  color: var(--lavender);
+  font-size: 24px;
+}
+
+.modal .section-kicker {
+  margin: 15px 0 0;
+}
+
+.modal h2 {
+  font-size: clamp(34px, 5vw, 48px);
+  margin: 12px 0 25px;
+}
+
+.modal-content {
+  color: #d1cee3;
+  font-family: var(--serif);
+  font-size: 21px;
+  line-height: 1.65;
+  text-align: left;
+}
+
+.modal-content p {
+  margin-bottom: 18px;
+}
+
+.modal-content .poem {
+  white-space: pre-line;
+  font-style: italic;
+  color: #e6ddfa;
+}
+
+.modal-done {
+  margin-top: 18px;
+}
+
+
+/* No celular, tudo precisa continuar bonito sem apertar a leitura. */
+
+@media (max-width: 700px) {
+
+  .topbar {
+    padding: 22px 20px;
+  }
+
+  .wordmark {
+    font-size: 9px;
+    letter-spacing: 0.13em;
+  }
+
+  .quiet-button {
+    font-size: 9px;
+  }
+
+  .hero {
+    min-height: 92svh;
+    padding-top: 120px;
+  }
+
+  .eyebrow {
+    font-size: 8px;
+    letter-spacing: 0.16em;
+    gap: 8px;
+  }
+
+  .eyebrow-line {
+    width: 17px;
+  }
+
+  .moon-wrap {
+    margin-top: 27px;
+  }
+
+  .hero-copy {
+    max-width: 310px;
+    font-size: 11px;
+  }
+
+  .desktop-break {
+    display: none;
+  }
+
+  .explore,
+  .section-block {
+    width: calc(100% - 36px);
+  }
+
+  .explore {
+    padding-top: 78px;
+  }
+
+  .section-block {
+    padding: 75px 0;
+  }
+
+  .section-heading {
+    margin-bottom: 32px;
+  }
+
+  .constellation {
+    height: 410px;
+  }
+
+  .constellation-caption {
+    font-size: 8px;
+  }
+
+  .star-point span {
+    font-size: 21px;
+  }
+
+  .message-card {
+    padding: 34px 23px;
+  }
+
+  .message-text {
+    font-size: 22px;
+  }
+
+  .letter-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .letter-card {
+    min-height: 195px;
+    padding: 22px;
+  }
+
+  .envelope-icon {
+    margin-bottom: 18px;
+  }
+
+  .letter-open {
+    padding-top: 18px;
+  }
+
+  .story {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .story-art {
+    height: 260px;
+    order: 2;
+  }
+
+  .story-copy {
+    order: 1;
+    text-align: center;
+  }
+
+  .story-copy p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .closing {
+    padding-bottom: 75px;
+  }
+
+  .modal {
+    padding-top: 40px;
+  }
+
+  .modal-content {
+    font-size: 19px;
+  }
+}
+
+
+/* Algumas pessoas preferem menos animações.
+   Aqui respeitamos essa escolha sem mudar o conteúdo. */
+
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+
+/* Pequenos cuidados extras para leitura, navegação e telas menores. */
+
+/* Textos grandes não devem escapar dos limites dos cartões. */
+.message-card,
+.modal,
+.letter-card {
+  overflow-wrap: break-word;
+}
+
+/* Um pouco mais de espaço entre as linhas ajuda nas poesias longas. */
+.message-text {
+  line-height: 1.6;
+}
+
+/* Se a janela for maior que a tela, ainda será possível rolar o conteúdo. */
+.modal-backdrop {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+/* Botões pequenos também precisam ser fáceis de tocar. */
+.quiet-button,
+.text-button {
+  min-height: 44px;
+}
+
+/* Quem usa teclado precisa enxergar claramente onde está o foco. */
+.star-point:focus-visible,
+.letter-card:focus-visible,
+.close-button:focus-visible {
+  outline: 2px solid var(--lavender-bright);
+  outline-offset: 2px;
+}
+
+
+/* Ajustes finais para o toque e a leitura no celular. */
+
+@media (max-width: 700px) {
+
+  /* Mantemos a altura do desenho para não bagunçar as estrelas. */
+  .constellation {
+    height: 410px;
+  }
+
+  /* O brilho é pequeno, mas a área de toque precisa ser confortável. */
+  .star-point {
+    min-width: 44px;
+    min-height: 44px;
+    padding: 8px;
+    touch-action: manipulation;
+  }
+
+  /* No celular, o destaque da estrela não precisa aumentar tanto. */
+  .star-point:hover,
+  .star-point:focus-visible {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+
+  /* Mais espaço nas laterais e entre as linhas dos poemas. */
+  .message-card {
+    padding: 36px 20px;
+    scroll-margin-top: 20px;
+  }
+
+  .message-text {
+    font-size: clamp(21px, 5.5vw, 24px);
+    line-height: 1.65;
+  }
+
+  /* As cartas continuam fáceis de abrir mesmo em telas pequenas. */
+  .letter-card {
+    min-height: 180px;
+    touch-action: manipulation;
+  }
+
+  /* A janela se adapta à altura disponível, sem cortar os botões. */
+  .modal-backdrop {
+    padding: 12px;
+  }
+
+  .modal {
+    max-height: calc(100dvh - 24px);
+    padding: 42px 22px 28px;
+  }
+
+  .modal-content {
+    font-size: 20px;
+    line-height: 1.7;
+  }
+
+  /* Nebulosas mais leves para não sobrecarregar o visual no celular. */
+  .nebula {
+    filter: blur(55px);
+  }
+}
+
+
+/* Um último ajuste para celulares com telas especialmente estreitas. */
+
+@media (max-width: 380px) {
+
+  .message-text {
+    font-size: 21px;
+  }
+
+  .modal-content {
+    font-size: 19px;
+  }
+
+  .constellation-caption {
+    font-size: 8px;
+    letter-spacing: 0.1em;
+  }
+}
+
+/* Cada estrela tem seu momento de brilhar.
+   As que ainda não chegaram ficam discretas, mas continuam no céu. */
+
+.star-point:disabled {
+  cursor: default;
+  color: #77718f;
+  opacity: 0.35;
+  filter: none;
+  pointer-events: none;
+}
+
+.star-point:disabled span {
+  animation: none;
+}
+
+/* As estrelas já descobertas continuam iluminadas. */
+.estrela-descoberta {
+  color: #d9d0ff;
+  opacity: 0.85;
+  filter: drop-shadow(0 0 7px rgba(204,190,255,0.5));
+}
+
+/* A próxima estrela chama discretamente por ela. */
+.estrela-seguinte {
+  color: #ffffff;
+  opacity: 1;
+  filter: drop-shadow(0 0 13px rgba(225,214,255,0.9));
+  animation: chamarEstrela 2.5s ease-in-out infinite;
+}
+
+/* Um brilho suave, como se a estrela estivesse esperando. */
+@keyframes chamarEstrela {
+  0%, 100% {
+    filter: drop-shadow(0 0 7px rgba(225,214,255,0.6));
+  }
+
+  50% {
+    filter: drop-shadow(0 0 19px rgba(225,214,255,1));
+  }
+}
+
+/* Quem prefere menos movimento continua vendo o destaque, sem pulsação. */
+@media (prefers-reduced-motion: reduce) {
+  .estrela-seguinte {
+    animation: none;
+  }
+}
+
+/* As próximas partes continuam visíveis, mas ainda têm seus segredos. */
+
+.letters,
+.story {
+  position: relative;
+}
+
+/* Enquanto estiverem bloqueadas, ficam mais discretas. */
+.letters.bloqueada .letter-grid,
+.story.bloqueada .story-copy,
+.story.bloqueada .story-art {
+  opacity: 0.3;
+  filter: blur(3px);
+  transition: opacity 0.8s ease, filter 0.8s ease;
+}
+
+/* Nada de abrir cartas ou histórias antes da hora. */
+.letters.bloqueada .letter-card,
+.story.bloqueada #storyButton {
+  cursor: default;
+  pointer-events: none;
+}
+
+/* Um pequeno aviso para quem tentar adiantar a jornada. */
+.letters.bloqueada::after {
+  content: "Antes destas cartas, existem estrelas esperando por você.";
+}
+
+.story.bloqueada::after {
+  content: "Algumas histórias só começam depois de certas palavras.";
+}
+
+.letters.bloqueada::after,
+.story.bloqueada::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(85%, 400px);
+  padding: 20px;
+  text-align: center;
+  font-family: var(--serif);
+  font-size: clamp(22px, 4vw, 30px);
+  line-height: 1.3;
+  color: var(--lavender-bright);
+  text-shadow: 0 0 20px rgba(199, 185, 245, 0.35);
+  pointer-events: none;
+}
+
+/* Quando uma etapa é liberada, tudo volta ao visual original. */
+.letters:not(.bloqueada) .letter-grid,
+.story:not(.bloqueada) .story-copy,
+.story:not(.bloqueada) .story-art {
+  opacity: 1;
+  filter: none;
 }

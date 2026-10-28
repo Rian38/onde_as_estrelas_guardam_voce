@@ -1,17 +1,25 @@
 <!doctype html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#090b1b">
-  <meta name="description" content="Um pequeno universo de estrelas, cartas e palavras guardadas especialmente para você.">
+  <meta name="description"
+    content="Um pequeno universo de estrelas, cartas e palavras guardadas especialmente para você.">
   <title>Onde as estrelas guardam você</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
+  <!-- O fundo fica separado do conteúdo para as estrelas não atrapalharem os cliques. -->
   <div class="sky" aria-hidden="true">
     <div class="nebula nebula-one"></div>
     <div class="nebula nebula-two"></div>
@@ -19,92 +27,176 @@
     <div class="shooting-star"></div>
   </div>
 
+  <!-- Um caminho de volta ao início e um botão para explicar este cantinho. -->
   <header class="topbar">
     <a class="wordmark" href="#home" aria-label="Voltar ao início">
       <span class="wordmark-star">✦</span>
       <span>um lugar só seu</span>
     </a>
-    <button class="quiet-button" id="aboutButton" type="button">sobre este lugar <span aria-hidden="true">↗</span></button>
+    <button class="quiet-button" id="aboutButton" type="button">
+      sobre este lugar <span aria-hidden="true">↗</span>
+    </button>
   </header>
 
   <main>
-    <section class="hero section-visible" id="home">
-      <div class="eyebrow"><span class="eyebrow-line"></span> um pequeno universo particular <span class="eyebrow-line"></span></div>
+
+    <!-- A primeira impressão: poucas palavras, uma lua e um convite para entrar. -->
+    <section class="hero" id="home">
+      <div class="eyebrow">
+        <span class="eyebrow-line"></span>
+        um pequeno universo particular
+        <span class="eyebrow-line"></span>
+      </div>
+
       <div class="moon-wrap" aria-hidden="true">
         <div class="moon"></div>
         <span class="moon-spark spark-a">✧</span>
         <span class="moon-spark spark-b">·</span>
         <span class="moon-spark spark-c">✦</span>
       </div>
-      <h1>Onde as estrelas<br> <em>guardam você.</em></h1>
-      <p class="hero-copy">Existem lugares que não aparecem em nenhum mapa.<br class="desktop-break"> Este, de alguma forma, encontrou o caminho até você.</p>
+
+      <h1>Onde as estrelas<br><em>guardam você.</em></h1>
+
+      <p class="hero-copy">
+        Existem lugares que não aparecem em nenhum mapa.
+        <br class="desktop-break">
+        Este, de alguma forma, encontrou o caminho até você.
+      </p>
+
       <button class="primary-button" id="enterButton" type="button">
-        <span>entrar no meu céu</span><span class="button-arrow" aria-hidden="true">↗</span>
+        <span>entrar no meu céu</span>
+        <span class="button-arrow" aria-hidden="true">↗</span>
       </button>
-      <div class="scroll-note"><span class="scroll-line"></span> há coisas esperando por você <span class="scroll-line"></span></div>
+
+      <div class="scroll-note">
+        <span class="scroll-line"></span>
+        há coisas esperando por você
+        <span class="scroll-line"></span>
+      </div>
     </section>
 
+    <!-- Aqui começa a exploração: cada estrela abre uma mensagem diferente. -->
     <section class="explore" id="universe" aria-labelledby="universeTitle">
       <div class="section-heading">
         <span class="section-kicker">I · o céu de segredos</span>
         <h2 id="universeTitle">Algumas luzes <em>sabem seu nome.</em></h2>
-        <p>Toque em uma estrela. Cada uma guarda algo diferente.</p>
+        <p>Toque em uma estrela. Cada uma guarda algo diferente. São dezoito segredos desenhados no céu.</p>
       </div>
-      <div class="constellation" id="constellation" aria-label="Constelação interativa de mensagens">
-        <svg class="constellation-lines" viewBox="0 0 700 330" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M95 220 L195 110 L315 175 L420 70 L545 155 L620 85" />
-          <path d="M195 110 L230 265 L315 175 L390 280 L545 155" />
+
+      <div class="constellation" id="constellation"
+        aria-label="Constelação interativa de Escorpião com dezoito mensagens">
+
+        <!-- O desenho usa só traços; preencher os caminhos cobriria a constelação. -->
+
+        <svg class="constellation-lines" viewBox="0 0 1000 440" preserveAspectRatio="none" aria-hidden="true">
+          <!-- Começamos pelas pinças e pela cabeça do Escorpião. -->
+          <path d="M 200 75 L 240 112 L 275 151 L 350 183
+       M 240 112 L 305 70
+       M 275 151 L 195 170
+       M 350 183 L 415 197" fill="none" stroke="#b3a6ec" stroke-width="1.5" stroke-opacity="0.55"
+            stroke-dasharray="3 7" />
+
+          <!-- Este traço acompanha o corpo até a curva da cauda. -->
+          <path d="M 415 197 L 490 245 L 540 297
+       L 610 345 L 690 370 L 770 357
+       L 820 316 L 825 263 L 790 215" fill="none" stroke="#b3a6ec" stroke-width="1.5" stroke-opacity="0.55"
+            stroke-dasharray="3 7" />
+
+          <!-- Pequenos desvios completam o desenho, incluindo o ferrão. -->
+          <path d="M 540 297 L 570 255
+       M 690 370 L 720 323
+       M 790 215 L 855 192" fill="none" stroke="#b3a6ec" stroke-width="1.5" stroke-opacity="0.55"
+            stroke-dasharray="3 7" />
         </svg>
-        <button class="star-point star-one" data-message="first" aria-label="Abrir estrela: uma coisa bonita"><span>✦</span></button>
-        <button class="star-point star-two" data-message="second" aria-label="Abrir estrela: o jeito como você sente"><span>✧</span></button>
-        <button class="star-point star-three" data-message="third" aria-label="Abrir estrela: um lembrete"><span>✦</span></button>
-        <button class="star-point star-four" data-message="fourth" aria-label="Abrir estrela: você merece"><span>✧</span></button>
-        <button class="star-point star-five" data-message="fifth" aria-label="Abrir estrela: um segredo pequeno"><span>✦</span></button>
-        <button class="star-point star-six" data-message="sixth" aria-label="Abrir estrela: continue sonhando"><span>✧</span></button>
-        <span class="constellation-label label-one">uma coisa bonita</span>
-        <span class="constellation-label label-two">o jeito como você sente</span>
-        <span class="constellation-label label-three">um lembrete</span>
-        <span class="constellation-label label-four">você merece</span>
-        <span class="constellation-label label-five">um segredo pequeno</span>
-        <span class="constellation-label label-six">continue sonhando</span>
+
+        <!-- As seis primeiras mensagens que deram início a tudo. -->
+        <button class="star-point estrela-1" type="button" data-message="first"
+          aria-label="Estrela 1: uma coisa bonita"><span aria-hidden="true">✦</span></button>
+        <button class="star-point estrela-2" type="button" data-message="second"
+          aria-label="Estrela 2: o jeito como você sente"><span aria-hidden="true">✧</span></button>
+        <button class="star-point estrela-3" type="button" data-message="third"
+          aria-label="Estrela 3: um lembrete"><span aria-hidden="true">✦</span></button>
+        <button class="star-point estrela-4" type="button" data-message="fourth"
+          aria-label="Estrela 4: você merece"><span aria-hidden="true">✧</span></button>
+        <button class="star-point estrela-5" type="button" data-message="fifth"
+          aria-label="Estrela 5: um segredo pequeno"><span aria-hidden="true">✦</span></button>
+        <button class="star-point estrela-6" type="button" data-message="sixth"
+          aria-label="Estrela 6: continue sonhando"><span aria-hidden="true">✧</span></button>
+
+        <!-- Mais doze estrelas, agora com poemas para descobrir sem pressa. -->
+        <button class="star-point estrela-7" type="button" data-message="nova7"
+          aria-label="Estrela 7: A princesa que se sentia invisível"><span aria-hidden="true">✦</span></button>
+        <button class="star-point estrela-8" type="button" data-message="nova8"
+          aria-label="Estrela 8: O paraíso dos olhos castanhos"><span aria-hidden="true">✧</span></button>
+        <button class="star-point estrela-9" type="button" data-message="nova9"
+          aria-label="Estrela 9: Se eu pudesse lhe oferecer um jardim"><span aria-hidden="true">✦</span></button>
+        <button class="star-point estrela-10" type="button" data-message="nova10"
+          aria-label="Estrela 10: As páginas que ainda não foram escritas"><span aria-hidden="true">✧</span></button>
+        <button class="star-point estrela-11" type="button" data-message="nova11"
+          aria-label="Estrela 11: Quando duas solidões se encontram"><span aria-hidden="true">✦</span></button>
+        <button class="star-point estrela-12" type="button" data-message="nova12"
+          aria-label="Estrela 12: O que eu gostaria de dizer ao seu coração"><span aria-hidden="true">✧</span></button>
+        <button class="star-point estrela-13" type="button" data-message="nova13"
+          aria-label="Estrela 13: A delicadeza de desejar ficar"><span aria-hidden="true">✦</span></button>
+        <button class="star-point estrela-14" type="button" data-message="nova14"
+          aria-label="Estrela 14: O universo que existe em você"><span aria-hidden="true">✧</span></button>
+        <button class="star-point estrela-15" type="button" data-message="nova15"
+          aria-label="Estrela 15: Se o destino tivesse mãos"><span aria-hidden="true">✦</span></button>
+        <button class="star-point estrela-16" type="button" data-message="nova16"
+          aria-label="Estrela 16: A música que ainda não terminou"><span aria-hidden="true">✧</span></button>
+        <button class="star-point estrela-17" type="button" data-message="nova17"
+          aria-label="Estrela 17: O dia em que o mundo ganhou você"><span aria-hidden="true">✦</span></button>
+        <button class="star-point estrela-18" type="button" data-message="nova18"
+          aria-label="Estrela 18: Onde as estrelas guardam você"><span aria-hidden="true">✧</span></button>
+
+        <span class="constellation-caption" aria-hidden="true">
+          SCORPIUS · 18 SEGREDOS
+        </span>
       </div>
-      <div class="message-card" id="messageCard" hidden aria-live="polite">
+
+      <!-- O JavaScript coloca aqui o texto da estrela escolhida. -->
+      <div class="message-card" id="messageCard" hidden role="region" aria-labelledby="messageLabel" tabindex="-1">
         <button class="close-button" id="closeMessage" type="button" aria-label="Fechar mensagem">×</button>
-        <span class="card-sparkle">✧</span>
-        <p class="message-label" id="messageLabel">uma coisa bonita</p>
-        <p class="message-text" id="messageText"></p>
-        <span class="card-end">✦</span>
+        <span class="card-sparkle" aria-hidden="true">✧</span>
+        <p class="message-label" id="messageLabel"></p>
+        <div class="message-text" id="messageText"></div>
+        <span class="card-end" aria-hidden="true">✦</span>
       </div>
     </section>
 
+    <!-- Três cartas para momentos diferentes, abertas na ordem que ela quiser. -->
     <section class="letters section-block" id="letters">
       <div class="section-heading">
         <span class="section-kicker">II · correspondências da noite</span>
         <h2>Cartas que <em>esperam por você.</em></h2>
         <p>Não precisa abrir todas agora. Algumas palavras sabem esperar.</p>
       </div>
+
       <div class="letter-grid">
-        <button class="letter-card" data-letter="sad">
-          <span class="envelope-icon" aria-hidden="true"><span>✉</span></span>
+        <button class="letter-card" data-letter="sad" type="button">
+          <span class="envelope-icon" aria-hidden="true">✉</span>
           <span class="letter-tag">para os dias difíceis</span>
           <span class="letter-title">Quando o mundo parecer distante</span>
-          <span class="letter-open">abrir carta <span>↗</span></span>
+          <span class="letter-open">abrir carta <span aria-hidden="true">↗</span></span>
         </button>
-        <button class="letter-card" data-letter="self">
-          <span class="envelope-icon" aria-hidden="true"><span>✉</span></span>
+
+        <button class="letter-card" data-letter="self" type="button">
+          <span class="envelope-icon" aria-hidden="true">✉</span>
           <span class="letter-tag">um lembrete gentil</span>
           <span class="letter-title">Quando você esquecer de si</span>
-          <span class="letter-open">abrir carta <span>↗</span></span>
+          <span class="letter-open">abrir carta <span aria-hidden="true">↗</span></span>
         </button>
-        <button class="letter-card" data-letter="secret">
-          <span class="envelope-icon" aria-hidden="true"><span>✉</span></span>
+
+        <button class="letter-card" data-letter="secret" type="button">
+          <span class="envelope-icon" aria-hidden="true">✉</span>
           <span class="letter-tag">uma pequena confissão</span>
           <span class="letter-title">Uma coisa que eu queria que soubesse</span>
-          <span class="letter-open">abrir carta <span>↗</span></span>
+          <span class="letter-open">abrir carta <span aria-hidden="true">↗</span></span>
         </button>
       </div>
     </section>
 
+    <!-- Depois das cartas, uma história que ainda não precisa ter final. -->
     <section class="story section-block" id="story">
       <div class="story-art" aria-hidden="true">
         <div class="story-orbit orbit-one"></div>
@@ -114,16 +206,21 @@
         <div class="story-hill hill-back"></div>
         <div class="story-hill hill-front"></div>
       </div>
+
       <div class="story-copy">
         <span class="section-kicker">III · uma história ainda sendo escrita</span>
         <h2>E se o amor<br>não fosse <em>só ficção?</em></h2>
-        <p>Há histórias que terminam na última página. Outras começam quando alguém decide escrever uma linha a mais.</p>
-        <button class="text-button" id="storyButton" type="button">descobrir o começo <span>↗</span></button>
+        <p>Há histórias que terminam na última página. Outras começam quando alguém decide escrever uma linha a mais.
+        </p>
+        <button class="text-button" id="storyButton" type="button">
+          descobrir o começo <span aria-hidden="true">↗</span>
+        </button>
       </div>
     </section>
 
+    <!-- Um último carinho antes de terminar a visita. -->
     <section class="closing section-block">
-      <div class="closing-star">✧</div>
+      <div class="closing-star" aria-hidden="true">✧</div>
       <p class="closing-line">Nem tudo que é precioso precisa fazer barulho.</p>
       <p class="closing-subline">Às vezes, basta existir — e ser encontrado por alguém que olha com carinho.</p>
       <span class="signature">com carinho, para você.</span>
@@ -132,20 +229,25 @@
 
   <footer class="footer">
     <span>feito de palavras, silêncio e céu estrelado</span>
-    <span>✦</span>
+    <span aria-hidden="true">✦</span>
   </footer>
 
+  <!-- As cartas e a história dividem a mesma janela; o JavaScript troca o conteúdo. -->
   <div class="modal-backdrop" id="modalBackdrop" hidden>
-    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalKicker"
+      tabindex="-1">
       <button class="close-button modal-close" id="closeModal" type="button" aria-label="Fechar">×</button>
-      <span class="modal-ornament">✧</span>
-      <p class="section-kicker" id="modalKicker">uma carta para você</p>
-      <h2 id="modalTitle">Palavras guardadas</h2>
+      <span class="modal-ornament" aria-hidden="true">✧</span>
+      <p class="section-kicker" id="modalKicker"></p>
+      <h2 id="modalTitle"></h2>
       <div class="modal-content" id="modalContent"></div>
-      <button class="text-button modal-done" id="modalDone" type="button">guardar estas palavras <span>↗</span></button>
+      <button class="text-button modal-done" id="modalDone" type="button">
+        guardar estas palavras <span aria-hidden="true">↗</span>
+      </button>
     </section>
   </div>
 
   <script src="script.js"></script>
 </body>
+
 </html>
